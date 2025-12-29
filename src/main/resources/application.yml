@@ -1,0 +1,16 @@
+spring:
+  application:
+    name: loyalty-core
+  
+  # Включаем виртуальные потоки (Project Loom)
+  # Это позволяет сервису держать тысячи одновременных I/O соединений 
+  # без перерасхода оперативной памяти на нативные потоки ОС.
+  threads:
+    virtual:
+      enabled: true
+
+  # Настройки пула БД, оптимизированные под быстрые транзакции
+  datasource:
+    hikari:
+      maximum-pool-size: 25
+      connection-timeout: 2000
